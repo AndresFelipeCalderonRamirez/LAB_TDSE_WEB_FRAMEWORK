@@ -23,19 +23,19 @@ src/
     ├── java/
     │   └── project/tdse/lab/
     │       ├── client/
-    │       │   └── EchoClient.java       # Basic TCP echo client (demo)
+    │       │   └── EchoClient.java       
     │       ├── server/
-    │       │   ├── EchoServer.java       # Basic TCP echo server (demo)
-    │       │   ├── HttpServer.java       # Core HTTP server loop
-    │       │   └── Router.java           # Route registry and static files config
+    │       │   ├── EchoServer.java       
+    │       │   ├── HttpServer.java       
+    │       │   └── Router.java           
     │       ├── service/
-    │       │   └── MathServices.java     # Example app: defines routes and starts server
+    │       │   └── MathServices.java     
     │       └── util/
-    │           ├── Request.java          # HTTP request abstraction
-    │           ├── Response.java         # HTTP response abstraction
-    │           ├── WebMethod.java        # Functional interface for route handlers
-    │           ├── URLParser.java        # URL parsing utility (demo)
-    │           └── URLReader.java        # URL connection utility (demo)
+    │           ├── Request.java          
+    │           ├── Response.java         
+    │           ├── WebMethod.java        
+    │           ├── URLParser.java        
+    │           └── URLReader.java        
     
 ```
 
