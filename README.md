@@ -36,12 +36,7 @@ src/
     │           ├── WebMethod.java        # Functional interface for route handlers
     │           ├── URLParser.java        # URL parsing utility (demo)
     │           └── URLReader.java        # URL connection utility (demo)
-    └── resources/
-        └── webroot/
-            └── public/                   # Static files served by the server
-                ├── index.html
-                ├── style.css
-                └── ...
+    
 ```
 
 ### Component Responsibilities
@@ -155,3 +150,21 @@ After building, files will be accessible at:
 | `.png` | `image/png` |
 | `.jpg` / `.jpeg` | `image/jpeg` |
 | other | `text/plain` |
+
+## Tests
+
+Link: http://localhost:8080/index.html
+
+![img.png](img/HolaMundo.png)
+
+Link: http://localhost:8080/App/hello?name=Andres
+
+![img.png](img/Andres.png)
+
+Link: http://localhost:8080/App/hello?name=Pedro
+
+![img.png](img/Pedro.png)
+
+Link: http://localhost:8080/App/pi
+
+![img.png](img/PI.png)
