@@ -13,9 +13,9 @@ public class HttpServer {
     public static void main(String[] args) throws IOException, URISyntaxException {
         ServerSocket serverSocket = null;
         try {
-            serverSocket = new ServerSocket(35000);
+            serverSocket = new ServerSocket(8080);
         } catch (IOException e) {
-            System.err.println("Could not listen on port: 35000.");
+            System.err.println("Could not listen on port: 8080.");
             System.exit(1);
         }
 
@@ -54,12 +54,13 @@ public class HttpServer {
             }
 
             String query = (requri != null) ? requri.getQuery() : null;
-            Request req = new Request(reqpath, "GET", query);
+            String routePath = reqpath.startsWith("/App") ? reqpath.substring(4) : reqpath;
+            Request req = new Request(routePath, "GET", query);
             Response res = new Response();
 
             // Primero intenta resolver como ruta registrada
-            if (Router.hasRoute(reqpath)) {
-                String body = Router.handle(reqpath, req, res);
+            if (Router.hasRoute(routePath)) {
+                String body = Router.handle(routePath, req, res);
                 String outputLine = "HTTP/1.1 " + res.getStatus() + " OK\r\n"
                         + "Content-Type: " + res.getContentType() + "\r\n"
                         + "\r\n"
@@ -81,7 +82,7 @@ public class HttpServer {
     private static void serveStaticFile(String reqpath, PrintWriter out, OutputStream rawOut) throws IOException {
         // Ruta base: target/classes/<carpeta definida en staticfiles()>
         String folder = Router.getStaticFilesFolder();
-        String basePath = "target/classes/" + folder;
+        String basePath = "target/classes" + folder;
 
         // Si piden "/", servir index.html por defecto
         if (reqpath.equals("/")) {
